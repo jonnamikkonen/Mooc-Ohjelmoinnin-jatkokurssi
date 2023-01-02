@@ -14,3 +14,21 @@ class Kirja:
 
 # -----------------------------
 # tee ratkaisu tänne
+def genren_kirjat(kirjat: list, genre: str):
+    genren_kirjat = []
+    
+    for kirja in kirjat:
+        if kirja.genre == genre:
+            genren_kirjat.append(kirja)
+    return genren_kirjat
+
+if __name__ =="__main__":
+    python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
+    everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
+    norma = Kirja("Norma", "Sofi Oksanen", "rikos", 2015)
+
+    kirjat = [python, everest, norma, Kirja("Lumiukko", "Jo Nesbø", "rikos", 2007)]
+
+    print("rikoskirjoja ovat")
+    for kirja in genren_kirjat(kirjat, "rikos"):
+        print(f"{kirja.kirjoittaja}: {kirja.nimi}")
