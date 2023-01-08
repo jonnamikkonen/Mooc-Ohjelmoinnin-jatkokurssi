@@ -13,5 +13,10 @@ class Henkilo:
         self.lemmikki = lemmikki
 
     def __str__(self):
-        return self.nimi
+        return f"{self.nimi}, kaverina {self.lemmikki.nimi}, joka on {self.lemmikki.kuvaus}"
 
+if __name__ == "__main__":
+    hulda = Lemmikki("Hulda", "sekarotuinen koira")
+    leevi = Henkilo("Leevi", hulda)
+
+    print(leevi)
