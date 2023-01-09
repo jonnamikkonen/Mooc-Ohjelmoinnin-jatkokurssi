@@ -8,3 +8,16 @@ class Suoritus:
         return f"{self.opiskelijan_nimi}, arvosana kurssilta {self.kurssi} {self.arvosana}"
 
 # Tee ratkaisusi tähän:
+def suorittajien_nimet(suoritukset: list):
+    return map(lambda x: x.opiskelijan_nimi, suoritukset)
+
+def kurssien_nimet(suoritukset: list):
+    return sorted(set(map(lambda x: x.kurssi, suoritukset)))
+
+if __name__ == "__main__":
+    s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
+    s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
+    s3 = Suoritus("Pekka Python", "Ohjelmoinnin jatkokurssi", 2)
+
+    for nimi in kurssien_nimet([s1, s2, s3]):
+        print(nimi)

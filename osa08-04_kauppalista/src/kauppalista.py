@@ -19,8 +19,11 @@ class Kauppalista:
 # ----------------------
 # Tee ratkaisusi tähän:
 # ----------------------
-
-
+def tuotteita_yhteensa(lista: Kauppalista):
+    tuotteita = 0
+    for i in range(1, lista.tuotteita()+1):
+        tuotteita += lista.maara(i)
+    return tuotteita
 
 if __name__ == "__main__":
     lista = Kauppalista()

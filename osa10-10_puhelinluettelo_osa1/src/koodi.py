@@ -14,6 +14,11 @@ class Puhelinluettelo:
             return None
         return self.__henkilot[nimi]
 
+    def hae_nimet(self, numero: str):
+        for nimi, numerot in self.__henkilot.items():
+            if numero in numerot:
+                return nimi
+        return None
 
     def kaikki_tiedot(self):
         return self.__henkilot
@@ -53,6 +58,7 @@ class PuhelinluetteloSovellus:
         print("0 lopetus")
         print("1 lisäys")
         print("2 haku")
+        print("3 haku numeron perusteella")
 
     def lisays(self):
         nimi = input("nimi: ")
@@ -68,9 +74,15 @@ class PuhelinluetteloSovellus:
         for numero in numerot:
             print(numero)       
 
+    def haku_numeron_perusteella(self):
+        numero = input("numero: ")
+        nimet = self.__luettelo.hae_nimet(numero)
+        if nimet == None:
+            print("tuntematon numero")
+        print(nimet)
+
     def lopetus(self):
         self.__tiedosto.talleta(self.__luettelo.kaikki_tiedot())
-
 
     def suorita(self):
         self.ohje()
@@ -84,6 +96,8 @@ class PuhelinluetteloSovellus:
                 self.lisays()
             elif komento == "2":
                 self.haku()
+            elif komento == "3":
+                self.haku_numeron_perusteella()
             else:
                 self.ohje()
 
